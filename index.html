@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO -->
+  <title>FERGOF PERFUMES & FRAGRANCES | Parfums de luxe pour homme et femme au Sénégal</title>
+  <meta name="description" content="Parfumerie Élégance : parfums de marque pour homme, femme et mixtes. Livraison rapide à Dakar et dans tout le Sénégal. Paiement à la livraison, Wave, Orange Money.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Parfumerie Élégance – L'élégance commence par un parfum">
+  <meta property="og:description" content="Découvrez nos parfums de luxe et commandez en ligne au Sénégal.">
+  <meta property="og:image" content="images/hero.svg">
+  <!-- Polices (repli système si indisponibles) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Écran de chargement -->
+  <div id="loader" aria-hidden="true"><span>Fergof Perfumes & Fragrances</span><i></i></div>
+
+  <!-- ========== EN-TÊTE ========== -->
+  <header class="site-header" id="header">
+    <a href="#accueil" class="logo">Fergof Perfumes <b>& Fragrances</b></a>
+    <nav id="nav" aria-label="Navigation principale">
+      <a href="#populaires">Populaires</a>
+      <a href="#nouveautes">Nouveautés</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#livraison">Livraison</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Ouvrir le panier">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="accueil">
+      <div class="hero-text">
+        <h1>FERGOS PERFUMES & FRAGRANCES</h1>
+        <p class="slogan">L'élégance commence par un parfum.</p>
+        <p class="hero-sub">Des fragrances de grandes maisons, livrées chez vous à Dakar et partout au Sénégal.</p> <p>Une boutique de luxe olfactif, pensée pour vous guider vers la fragrance qui chausse idéalement votre nez.</p>
+        <div class="hero-btns">
+          <a href="#catalogue" class="btn btn-gold">Découvrir nos parfums</a>
+          <a href="#catalogue" class="btn btn-outline" id="orderNow">Commander maintenant</a>
+        </div>
+      </div>
+      <div class="hero-visual"><img src="images/Logo.jpeg" alt="Flacon de parfum doré sur fond noir"></div>
+    </section>
+
+    <!-- ========== SECTIONS PRODUITS (remplies par script.js) ========== -->
+    <section class="section reveal" id="populaires">
+      <div class="section-head"><h2>Nos parfums populaires</h2><p>Les fragrances préférées de nos clients.</p></div>
+      <div class="grid" id="gridPopular"></div>
+    </section>
+
+    <section class="section alt reveal" id="nouveautes">
+      <div class="section-head"><h2>Nouveautés</h2><p>Les dernières arrivées en boutique.</p></div>
+      <div class="grid" id="gridNew"></div>
+    </section>
+
+    <section class="section reveal" id="elle">
+      <div class="section-head"><h2>Pour elle</h2></div>
+      <div class="grid" id="gridFemme"></div>
+    </section>
+
+    <section class="section alt reveal" id="lui">
+      <div class="section-head"><h2>Pour lui</h2></div>
+      <div class="grid" id="gridHomme"></div>
+    </section>
+
+    <section class="section reveal" id="mixtes">
+      <div class="section-head"><h2>Parfums mixtes</h2><p>Des sillages faits pour tout le monde.</p></div>
+      <div class="grid" id="gridMixte"></div>
+    </section>
+
+    <!-- ========== CATALOGUE COMPLET ========== -->
+    <section class="section dark reveal" id="catalogue">
+      <div class="section-head"><h2>Tout le catalogue</h2><p>Recherchez, filtrez et triez nos parfums.</p></div>
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Rechercher un parfum ou une marque" aria-label="Rechercher un parfum ou une marque">
+        <select id="sort" aria-label="Trier les produits">
+          <option value="popular">Produits populaires</option>
+          <option value="asc">Prix croissant</option>
+          <option value="desc">Prix décroissant</option>
+          <option value="name">Nom A-Z</option>
+        </select>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtres">
+        <button class="chip active" data-filter="all">Tous</button>
+        <button class="chip" data-filter="homme">Homme</button>
+        <button class="chip" data-filter="femme">Femme</button>
+        <button class="chip" data-filter="mixte">Mixte</button>
+        <button class="chip" data-filter="new">Nouveautés</button>
+        <button class="chip" data-filter="promo">Promotions</button>
+      </div>
+      <div class="grid" id="gridCatalog"></div>
+      <p class="empty" id="noResult" hidden>Aucun parfum ne correspond à votre recherche. Essayez un autre nom ou retirez un filtre.</p>
+    </section>
+
+    <!-- ========== POURQUOI NOUS ========== -->
+    <section class="section reveal" id="pourquoi">
+      <div class="section-head"><h2>Pourquoi nous choisir ?</h2></div>
+      <div class="features">
+        <article><h3>Parfums authentiques</h3><p>Des flacons de marque, sélectionnés avec soin auprès de fournisseurs fiables.</p></article>
+        <article><h3>Livraison rapide</h3><p>Livraison à Dakar en peu de temps et dans les autres régions du Sénégal.</p></article>
+        <article><h3>Paiement flexible</h3><p>Payez à la livraison, par Wave ou par Orange Money.</p></article>
+        <article><h3>Conseil personnalisé</h3><p>Écrivez-nous sur WhatsApp : nous vous aidons à trouver votre signature olfactive.</p></article>
+      </div>
+    </section>
+
+    <!-- ========== LIVRAISON ========== -->
+    <section class="section alt reveal" id="livraison">
+      <div class="section-head"><h2>Livraison</h2><p>Les frais sont calculés selon votre zone.</p></div>
+      <ul class="zones" id="zonesList"></ul>
+    </section>
+
+    <!-- ========== TÉMOIGNAGES ========== -->
+    <section class="section reveal" id="temoignages">
+      <div class="section-head"><h2>Ils nous font confiance</h2></div>
+      <div class="features">
+        <blockquote>« Mon Bleu de Chanel est arrivé le jour même à Dakar, parfaitement emballé. »<cite>Moussa D.</cite></blockquote>
+        <blockquote>« Très bon conseil sur WhatsApp, j'ai trouvé le parfum idéal pour ma mère. »<cite>Awa S.</cite></blockquote>
+        <blockquote>« Prix clairs, paiement à la livraison : j'ai commandé en toute confiance. »<cite>Cheikh N.</cite></blockquote>
+      </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="section dark newsletter reveal" id="newsletter">
+      <div class="section-head"><h2>Restez informé</h2><p>Recevez nos nouveautés et offres exclusives.</p></div>
+      <form id="newsletterForm" class="news-form" novalidate>
+        <input type="email" id="newsEmail" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail" required>
+        <button class="btn btn-gold" type="submit">S'abonner</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div><a href="#accueil" class="logo">Parfumerie <b>Élégance</b></a><p>L'élégance commence par un parfum.</p></div>
+      <div><h4>Liens rapides</h4><a href="#accueil">Accueil</a><a href="#catalogue">Catalogue</a><a href="#livraison">Livraison</a><a href="#temoignages">Avis clients</a></div>
+      <div><h4>Nos catégories</h4><a href="#elle">Pour elle</a><a href="#lui">Pour lui</a><a href="#mixtes">Mixtes</a><a href="#nouveautes">Nouveautés</a></div>
+      <div><h4>Contact</h4>
+        <p>Téléphone : <a href="tel:+221770000000" id="footPhone">+221 78 832 40 27</a></p>
+        <p>WhatsApp : <a href="#" id="footWa" target="_blank" rel="noopener">Nous écrire</a></p>
+        <p>Adresse : Dakar, Sénégal</p>
+        <p class="social"><a href="#" aria-label="Facebook">Facebook</a> <a href="#" aria-label="Instagram">Instagram</a> <a href="#" aria-label="TikTok">TikTok</a></p>
+      </div>
+    </div>
+    <p class="copy">© <span id="year"></span> Parfumerie Élégance. Tous droits réservés.</p>
+  </footer>
+
+  <!-- ========== PANIER (tiroir) ========== -->
+  <aside class="drawer" id="cartDrawer" aria-label="Panier" aria-hidden="true">
+    <div class="drawer-head"><h2>Mon panier</h2><button class="icon-btn" data-action="close" aria-label="Fermer">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="row"><span>Sous-total</span><span id="subtotal"></span></div>
+      <div class="row"><span>Livraison</span><span id="shipping"></span></div>
+      <div class="row total"><span>Total</span><span id="total"></span></div>
+      <button class="btn btn-gold block" data-action="checkout">Passer la commande</button>
+      <button class="link-btn" data-action="clear">Vider le panier</button>
+    </div>
+  </aside>
+  <div id="overlay"></div>
+
+  <!-- ========== FENÊTRE DÉTAILS PRODUIT ========== -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-label="Détails du produit" aria-hidden="true">
+    <button class="icon-btn modal-close" data-action="close" aria-label="Fermer">✕</button>
+    <div id="productBody"></div>
+  </div>
+
+  <!-- ========== FENÊTRE COMMANDE ========== -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Commande" aria-hidden="true">
+    <button class="icon-btn modal-close" data-action="close" aria-label="Fermer">✕</button>
+    <h2>Finaliser la commande</h2>
+    <form id="orderForm" class="order" novalidate>
+      <div class="order-fields">
+        <label>Nom complet<input name="name" required autocomplete="name"></label>
+        <label>Numéro de téléphone<input name="phone" type="tel" required inputmode="tel" placeholder="77 000 00 00" autocomplete="tel"></label>
+        <label>Adresse<input name="address" required autocomplete="street-address"></label>
+        <label>Ville<select name="city" id="citySelect" required></select></label>
+        <label>Quartier<input name="district" required></label>
+        <fieldset>
+          <legend>Mode de paiement</legend>
+          <label class="radio"><input type="radio" name="pay" value="Paiement à la livraison" checked> Paiement à la livraison</label>
+          <label class="radio"><input type="radio" name="pay" value="Wave"> Wave</label>
+          <label class="radio"><input type="radio" name="pay" value="Orange Money"> Orange Money</label>
+          <p class="pay-note" id="payNote"></p>
+        </fieldset>
+      </div>
+      <div class="order-summary">
+        <h3>Résumé</h3>
+        <div id="orderSummary"></div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button class="btn btn-gold block" type="submit">Confirmer la commande</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Notifications, WhatsApp, retour en haut -->
+  <div id="toasts" aria-live="polite"></div>
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Commander via WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.2 14c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-2 1-2.200.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2 1.300 2.300 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>
+  </a>
+  <button id="toTop" aria-label="Retour en haut de page">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
